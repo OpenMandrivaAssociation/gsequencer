@@ -1,10 +1,11 @@
 Name:     gsequencer
 Version:  3.12.6
-Release:  0%{?dist}
+Release:  1
 Summary:  Audio processing engine
 License:  GPLv3+ and AGPLv3+ and GFDL-1.3+
 URL:      http://nongnu.org/gsequencer
 Source:   http://download.savannah.gnu.org/releases/gsequencer/3.12.x/%{name}-%{version}.tar.gz
+
 BuildRequires:      make
 BuildRequires:      libtool
 BuildRequires:      chrpath
@@ -34,9 +35,9 @@ BuildRequires:      pkgconfig(gstreamer-audio-1.0)
 BuildRequires:      pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires:      pkgconfig(gobject-introspection-1.0)
 BuildRequires:      pkgconfig(libpulse)
-BuildRequires:      CUnit-devel
+BuildRequires:      pkgconfig(cunit)
 BuildRequires:      desktop-file-utils
-BuildRequires:      xorg-x11-server-Xvfb
+BuildRequires:      x11-server-xvfb
 Requires:           xml-common
 
 %description
@@ -137,195 +138,3 @@ Advanced Gtk+ Sequencer library development documentation.
 %files -n gsequencer-devel-doc
 %{_datadir}/gtk-doc/
 %{_datadir}/doc/libags-audio-doc/
-
-%changelog
-* Mon Sep 13 2021 Joël Krähemann <jkraehemann@gmail.com> 3.11.7-0
-- updated Source to point to new minor version directory
-
-* Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 3.9.1-1
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
-
-* Fri Apr 16 2021 Benjamin A. Beasley <code@musicinmybrain.net> - 3.8.10-1
-- Rebuild for libinstpatch 1.1.6
-
-* Wed Mar 31 2021 Joël Krähemann <jkraehemann@gmail.com> 3.8.2-0
-- updated Source to point to new minor version directory
-
-* Thu Dec 03 2020 Joël Krähemann <jkraehemann@gmail.com> 3.7.1-0
-- updated Source to point to new minor version directory
-
-* Sun Oct 25 2020 Joël Krähemann <jkraehemann@gmail.com> 3.6.1-0
-- updated Source to point to new minor version directory
-- added gstreamer dependencies
-
-* Thu Jul 16 2020 Joël Krähemann <jkraehemann@gmail.com> 3.5.2-0
-- updated Source to point to new minor version directory
-
-* Sun Jun 21 2020 Joël Krähemann <jkraehemann@gmail.com> 3.4.3-0
-- updated Source to point to new minor version directory
-
-* Mon May 18 2020 Joël Krähemann <jkraehemann@gmail.com> 3.3.1-0
-- updated Source to point to new minor version directory
-
-* Fri Mar 13 2020 Joël Krähemann <jkraehemann@gmail.com> 3.2.0-0
-- updated Source to point to new minor version directory
-
-* Wed Feb 05 2020 Joël Krähemann <jkraehemann@gmail.com> 3.1.1-0
-- updated Source to point to new minor version directory
-- using configure flag --disable-upstream-gtk-doc
-
-* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.0.4-1
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
-
-* Fri Jan 17 2020 Joël Krähemann <jkraehemann@gmail.com> 3.0.4-0
-- dropped gsequencer.0-makefile-am.patch
-- updated build requires gtk2 to gtk3
-- additional build requires webkit2gtk3, libsoup and
-  gobject-introspection-devel
-- edited configure variables
-- edited make install target
-
-* Thu Nov 28 2019 Joël Krähemann <jkraehemann@gmail.com> 2.4.1-0
-- updated Source to point to new minor version directory
-- added configure flags to deal with gnulib
-
-* Tue Sep 10 2019 Joël Krähemann <jkraehemann@gmail.com> 2.3.1-0
-- updated Source to point to new minor version directory
-
-* Wed Jun 26 2019 Joël Krähemann <jkraehemann@gmail.com> 2.2.5-0
-- updated Source to point to new minor version directory
-
-* Mon Jan 07 2019 Joël Krähemann <jkraehemann@gmail.com> 2.1.32-0
-- updated install to package hicolor icon theme images
-- updated install to provide mime type information
-- updated install to provide gsequencer.appdata.xml
-
-* Sat Dec 01 2018 Joël Krähemann <jkraehemann@gmail.com> 2.1.3-0
-- updated Source to point to new minor version directory
-- removed build dependency ladspa-cmt-plugins and lv2-swh-plugins
-
-* Sun Nov 04 2018 Joël Krähemann <jkraehemann@gmail.com> 2.37.1-0
-- removed patch because functional tests are disabled by default
-
-* Sun Sep 09 2018 Joël Krähemann <jkraehemann@gmail.com> 2.0.1-1
-- provide patch to disable functional tests
-
-* Sun Sep 09 2018 Joël Krähemann <jkraehemann@gmail.com> 2.0.1-0
-- updated Source to point to new major version directory
-
-* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.18-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
-
-* Mon Jan 22 2018 Joël Krähemann <jkraehemann@gmail.com> 1.4.14-1
-- updated Source to point to new minor version directory
-- disabled strict symbol defs of linker
-
-* Fri Jan 05 2018 Joël Krähemann <jkraehemann@gmail.com> 1.3.1-1
-- updated Source to point to new minor version directory
-
-* Fri Dec 22 2017 Joël Krähemann <jkraehemann@gmail.com> 1.2.4-1
-- updated Source to point to new minor version directory
-- removed libgmp-devel requires since not used anymore
-
-* Sun Oct 15 2017 Joël Krähemann <jkraehemann@gmail.com> 1.1.4-1
-- updated Source to point to new minor version directory
-
-* Sun Oct 08 2017 Joël Krähemann <jkraehemann@gmail.com> 1.0.4-1
-- updated gsequencer.0-makefile-am.patch to fix globbing issue
-
-* Sun Oct 08 2017 Joël Krähemann <jkraehemann@gmail.com> 1.0.3-1
-- did some formating to the spec file, removed empty newline
-- merged all Makefile.am related patches to one single patch
-
-* Mon Oct 02 2017 Joël Krähemann <jkraehemann@gmail.com> 1.0.0-1
-- provide patch to fix libgsequencer API reference manual
-
-* Sat Sep 16 2017 Joël Krähemann <jkraehemann@gmail.com> 0.9.25-1
-- remove patch to fix logo and license since it can be passed as macro
-- provide patch to apply different gtk-doc paths
-- modified documentation paths
-
-* Tue Aug 22 2017 Joël Krähemann <jkraehemann@gmail.com> 0.9.14-1
-- added libpulse dependency
-- modified description to tell about pulseaudio support
-
-* Sun Aug 06 2017 Joël Krähemann <jkraehemann@gmail.com> 0.9.5-1
-- new upstream
-
-* Fri Aug 04 2017 Joël Krähemann <jkraehemann@gmail.com> 0.9.4-1
-- new upstream
-
-* Wed Aug 02 2017 Joël Krähemann <jkraehemann@gmail.com> 0.9.3-1
-- modified version because bug fixes available
-- modified SOURCE0 because new minor version available
-
-* Mon Jun 26 2017 Joël Krähemann <jkraehemann@gmail.com> 0.8.7-1
-- modified version because new features available
-
-* Wed Jun 14 2017 Joël Krähemann <jkraehemann@gmail.com> 0.8.4-1
-- removed some patches since applied upstream
-- added gettext-devel dependency
-- removed make target merged by upstream
-
-* Mon May 22 2017 Joël Krähemann <jkraehemann@gmail.com> 0.8.0-2
-- provide 2 more patches to fix unitialized pointer and unit test
-
-* Fri Apr 28 2017 Joël Krähemann <jkraehemann@gmail.com> 0.8.0-1
-- removed patch to fix missing type because upstream includes changes
-
-* Wed Apr 19 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.135-1
-- provide patch to fix missing license and logo within about dialog
-- provide patch to fix missing type for ags-play-dssi
-
-* Wed Apr 12 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.21-0
-- removed patch to fix reference manual because upstream includes changes
-
-* Mon Apr 10 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.20-0
-- removed 3 patches since new upstream package contains the changes
-- modified screen size for functional tests of xvfb-run to be 1920x1080x24
-- added ladspa cmt and lv2 swh plugins as build requires for functional tests
-- added patch 2 to fix upstream bug of reference manual
-
-* Mon Mar 20 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.7-1
-- provide patch to fix possible SIGSEGV as no soundcard configured
-
-* Wed Mar 15 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.7-0
-- removed 3 patches that was applied upstream
-- modified libgsequencer blue-print patch because upstream changed
-- do make check with xvfb-run
-
-* Wed Mar 08 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.6-3
-- make docs noarch
-
-* Tue Mar 07 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.6-2
-- provide libgsequencer blue-print patch to install to default linker path
-- provide libgsequencer gtk-doc patch to generate application API reference
-- provide libgsequencer.xml patch to fix non-existing XML files
-- provide libgsequencer.pc patch to make it available
-
-* Thu Mar 02 2017 Joël Krähemann <jkraehemann@gmail.com> 0.7.122.6-1
-- modified manpage expression
-- modified binary expression
-- removed CFLAGS and BINDIR flags of make_build
-
-* Sat Dec 31 2016 Joël Krähemann <jkraehemann@gmail.com> 0.7.122-0
-- RPM release
-
-* Tue Dec 27 2016 Joël Krähemann <jkraehemann@gmail.com> 0.7.121-0
-- fixed license field
-
-* Mon Dec 26 2016 Joël Krähemann <jkraehemann@gmail.com> 0.7.120-0
-- added xml-common requires
-- gsequencer-devel-doc owns /usr/share/gtk-doc/
-- pass compiler optimization flags
-- added missing make install-html
-- added build requires of docbook-xsl
-- added patch to fix docbook path
-
-* Thu Dec 22 2016 Joël Krähemann <jkraehemann@gmail.com> 0.7.119-0
-- removed debian specific directory /usr/share/doc-base
-
-* Tue Dec 13 2016 Joël Krähemann <jkraehemann@gmail.com> 0.7.115-0
-- Initial RPM release
-- unified usage of buildroot within gsequencer.spec
-- run make check during check
