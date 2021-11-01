@@ -20,8 +20,8 @@ BuildRequires:      pkgconfig(fftw3)
 BuildRequires:      ladspa-devel
 BuildRequires:      dssi-devel
 BuildRequires:      lv2-devel
-BuildRequires:      gstreamer1-plugins-base
-BuildRequires:      gstreamer1-plugins-good
+BuildRequires:      gstreamer1.0-plugins-base
+BuildRequires:      gstreamer1.0-plugins-good
 BuildRequires:      pkgconfig(jack)
 BuildRequires:      pkgconfig(samplerate)
 BuildRequires:      pkgconfig(sndfile)
