@@ -1,4 +1,4 @@
-%global optflags %{optflags} -fuse-ld=bfd
+%global optflags %{optflags} -fuse-ld=gold
 
 Name:     gsequencer
 Version:  3.12.6
