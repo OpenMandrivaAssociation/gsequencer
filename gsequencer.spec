@@ -1,4 +1,4 @@
-%global optflags %{optflags} -fuse-ld=gold
+#global optflags %{optflags} -fuse-ld=gold
 
 Name:     gsequencer
 Version:  3.12.6
@@ -57,6 +57,8 @@ automate ports.
 %autosetup -N
 
 %build
+export CC=gcc
+export CXX=g++
 %undefine _strict_symbol_defs_build
 autoreconf -fi
 export CPPFLAGS='-DAGS_CSS_FILENAME=\"/usr/share/gsequencer/styles/ags.css\" -DAGS_ANIMATION_FILENAME=\"/usr/share/gsequencer/images/gsequencer-800x450.png\" -DAGS_LOGO_FILENAME=\"/usr/share/gsequencer/images/ags.png\" -DAGS_LICENSE_FILENAME=\"/usr/share/licenses/gsequencer/COPYING\" -DAGS_ONLINE_HELP_START_FILENAME=\"file:///usr/share/doc/gsequencer/html/index.html\"'
