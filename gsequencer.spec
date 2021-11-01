@@ -1,3 +1,5 @@
+%global optflags %{optflags} -fuse-ld=bfd
+
 Name:     gsequencer
 Version:  3.12.6
 Release:  1
