@@ -109,6 +109,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/gsequencer.desktop
 %{_datadir}/gsequencer/
 %{_datadir}/xml/gsequencer/
 %{_datadir}/icons/hicolor/*/apps/gsequencer.png
+%{_iconsdir}/hicolor/scalable/apps/gsequencer.svg
 %{_datadir}/metainfo/
 %{_datadir}/mime/packages/
 %{_docdir}/gsequencer/
