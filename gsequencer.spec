@@ -1,13 +1,13 @@
 #global optflags %{optflags} -fuse-ld=gold
 
 Name:     gsequencer
-Version:  3.16.12
+Version:  4.2.14
 Release:  1
 Summary:  Audio processing engine
 License:  GPLv3+ and AGPLv3+ and GFDL-1.3+
 Group:		Sound
 URL:      http://nongnu.org/gsequencer
-Source:   http://download.savannah.gnu.org/releases/gsequencer/3.16.x/%{name}-%{version}.tar.gz
+Source:   http://download.savannah.gnu.org/releases/gsequencer/4.2.x/%{name}-%{version}.tar.gz
 
 BuildRequires:      make
 BuildRequires:      libtool
@@ -17,7 +17,7 @@ BuildRequires:      gettext-devel
 BuildRequires:      gtk-doc
 BuildRequires:      pkgconfig(uuid)
 BuildRequires:      pkgconfig(libxml-2.0)
-BuildRequires:      pkgconfig(libsoup-2.4)
+BuildRequires:      pkgconfig(libsoup-3.0)
 BuildRequires:      pkgconfig(alsa)
 BuildRequires:      pkgconfig(fftw3)
 BuildRequires:      ladspa-devel
@@ -29,7 +29,7 @@ BuildRequires:      pkgconfig(jack)
 BuildRequires:      pkgconfig(samplerate)
 BuildRequires:      pkgconfig(sndfile)
 BuildRequires:      pkgconfig(libinstpatch-1.0)
-BuildRequires:      pkgconfig(gtk+-3.0)
+BuildRequires:      pkgconfig(gtk4)
 BuildRequires:      pkgconfig(webkit2gtk-4.0)
 BuildRequires:      pkgconfig(gstreamer-1.0)
 BuildRequires:      pkgconfig(gstreamer-app-1.0)
