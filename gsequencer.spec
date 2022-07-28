@@ -17,7 +17,7 @@ BuildRequires:      gettext-devel
 BuildRequires:      gtk-doc
 BuildRequires:      pkgconfig(uuid)
 BuildRequires:      pkgconfig(libxml-2.0)
-BuildRequires:      pkgconfig(libsoup-3.0),
+BuildRequires:      pkgconfig(libsoup-3.0)
 BuildRequires:      pkgconfig(alsa)
 BuildRequires:      pkgconfig(fftw3)
 BuildRequires:      ladspa-devel
