@@ -10,6 +10,7 @@ URL:      http://nongnu.org/gsequencer
 Source:   http://download.savannah.gnu.org/releases/gsequencer/4.2.x/%{name}-%{version}.tar.gz
 
 BuildRequires:      make
+BuildRequires:      meson
 BuildRequires:      libtool
 BuildRequires:      chrpath
 BuildRequires:      docbook-style-xsl
@@ -58,40 +59,15 @@ automate ports.
 %autosetup -N
 
 %build
-export CC=gcc
-export CXX=g++
-%undefine _strict_symbol_defs_build
-autoreconf -fi
-export CPPFLAGS='-DAGS_CSS_FILENAME=\"/usr/share/gsequencer/styles/ags.css\" -DAGS_ANIMATION_FILENAME=\"/usr/share/gsequencer/images/gsequencer-800x450.png\" -DAGS_LOGO_FILENAME=\"/usr/share/gsequencer/images/ags.png\" -DAGS_LICENSE_FILENAME=\"/usr/share/licenses/gsequencer/COPYING\" -DAGS_ONLINE_HELP_START_FILENAME=\"file:///usr/share/doc/gsequencer/html/index.html\"'
-%configure HTMLHELP_XSL="/usr/share/sgml/docbook/xsl-stylesheets/htmlhelp/htmlhelp.xsl" --disable-upstream-gtk-doc --enable-introspection --disable-oss --enable-gtk-doc --enable-gtk-doc-html
-%make_build
-%make_build html
-%make_build fix-local-html
+#export CC=gcc
+#export CXX=g++
+%meson
+%meson_build
 
 %install
-%make_install
-%make_install install-compress-changelog
-%make_install install-html-mkdir
-%make_install install-html-mkdir-links
-%make_install install-html
-chrpath --delete %{buildroot}%{_bindir}/gsequencer
-chrpath --delete %{buildroot}%{_bindir}/midi2xml
-chrpath --delete %{buildroot}%{_libdir}/libags.so*
-chrpath --delete %{buildroot}%{_libdir}/libags_server.so*
-chrpath --delete %{buildroot}%{_libdir}/libags_thread.so*
-chrpath --delete %{buildroot}%{_libdir}/libags_gui.so*
-chrpath --delete %{buildroot}%{_libdir}/libags_audio.so*
-chrpath --delete %{buildroot}%{_libdir}/libgsequencer.so*
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
-rm -rf %{buildroot}%{_datadir}/doc-base/
+%meson_install
 %find_lang %{name}
 
-%check
-xvfb-run --server-args="-screen 0 1920x1080x24" -a make check
-desktop-file-validate %{buildroot}/%{_datadir}/applications/gsequencer.desktop
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %license COPYING
