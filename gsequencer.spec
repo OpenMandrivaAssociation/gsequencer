@@ -1,7 +1,7 @@
 #global optflags %{optflags} -fuse-ld=gold
 
 Name:     gsequencer
-Version:  4.3.4
+Version:  4.4.3
 Release:  1
 Summary:  Audio processing engine
 License:  GPLv3+ and AGPLv3+ and GFDL-1.3+
