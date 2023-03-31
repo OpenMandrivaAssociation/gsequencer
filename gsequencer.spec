@@ -2,7 +2,7 @@
 
 Name:     gsequencer
 Version:  4.4.3
-Release:  1
+Release:  2
 Summary:  Audio processing engine
 License:  GPLv3+ and AGPLv3+ and GFDL-1.3+
 Group:		Sound
