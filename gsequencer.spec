@@ -1,13 +1,15 @@
 #global optflags %{optflags} -fuse-ld=gold
 
 Name:     gsequencer
-Version:  6.1.3
+Version:  6.2.5
 Release:  1
 Summary:  Audio processing engine
 License:  GPLv3+ and AGPLv3+ and GFDL-1.3+
 Group:		Sound
 URL:      http://nongnu.org/gsequencer
-Source:   http://download.savannah.gnu.org/releases/gsequencer/4.2.x/%{name}-%{version}.tar.gz
+Source0:  https://github.com/gsequencer/gsequencer/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
+### No longer updated
+#Source:   http://download.savannah.gnu.org/releases/gsequencer/4.2.x/%{name}-%{version}.tar.gz
 
 BuildRequires:      make
 BuildRequires:      libtool
