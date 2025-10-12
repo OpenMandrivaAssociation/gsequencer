@@ -2,12 +2,13 @@
 %bcond_with	check
 
 %define	major	8
-%define libname	%mklibname ags %{major}
+%define libname	%mklibname ags
+%define oldlibname	%mklibname ags 8
 %define devname	%mklibname -d ags
 
 Summary:	 Audio processing engine
 Name:	gsequencer
-Version: 8.0.14
+Version: 8.1.24
 Release:	1
 License:	GPLv3+ and AGPLv3+
 Group:	Sound
@@ -58,6 +59,8 @@ BuildRequires:		pkgconfig(webkit2gtk-4.1)
 BuildRequires:		pkgconfig(x11)
 Requires:	xml-common
 
+Requires: %{libname} = %{EVRD}
+
 %description
 Advanced Gtk+ Sequencer audio processing engine is an audio sequencer
 application supporting LADPSA, DSSI and Lv2 plugin format. It can output to
@@ -86,7 +89,8 @@ there is a automation editor to automate ports.
 %package -n %{libname}
 Summary:  Advanced Gtk+ Sequencer library
 Group:	System/Libraries
-Conflicts:	%{name} < %{version}-%{release}
+Conflicts:	%{name} < %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 Advanced Gtk+ Sequencer audio processing engine is an audio sequencer
@@ -108,8 +112,8 @@ This package contains the library files needed by %{name}.
 %package -n %{devname}
 Summary:  Advanced Gtk+ Sequencer library development files
 Group:	Development/C++
-Requires: %{libname} = %{version}-%{release}
-Provides:	ags-devel = %{version}-%{release}
+Requires: %{libname} = %{EVRD}
+Provides:	ags-devel = %{EVRD}
 %rename	%{name}-devel
 
 %description -n %{devname}
