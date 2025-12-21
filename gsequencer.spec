@@ -14,6 +14,11 @@ License:	GPLv3+ and AGPLv3+
 Group:	Sound
 Url:	 https://nongnu.org/gsequencer
 Source0:	 https://github.com/gsequencer/gsequencer/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:		chrpath
 BuildRequires:		desktop-file-utils
 BuildRequires:		docbook-style-xsl
