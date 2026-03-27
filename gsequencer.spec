@@ -9,7 +9,7 @@
 Summary:	 Audio processing engine
 Name:	gsequencer
 Version: 8.1.24
-Release:	1
+Release:	2
 License:	GPLv3+ and AGPLv3+
 Group:	Sound
 Url:	 https://nongnu.org/gsequencer
