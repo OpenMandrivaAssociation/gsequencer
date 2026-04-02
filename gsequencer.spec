@@ -8,17 +8,16 @@
 
 Summary:	 Audio processing engine
 Name:	gsequencer
-Version: 8.1.24
-Release:	2
+Version: 8.3.10
+Release:	1
 License:	GPLv3+ and AGPLv3+
 Group:	Sound
 Url:	 https://nongnu.org/gsequencer
 Source0:	 https://github.com/gsequencer/gsequencer/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
-BuildRequires:	make
+Patch0:		gsequencer-3.8.10-drop-unknown-Werror-flags.patch
+Patch1:		gsequencer-3.8.10-fix-initialize-error-var.patch
+BuildRequires:		autoconf
+BuildRequires:		automake
 BuildRequires:		chrpath
 BuildRequires:		desktop-file-utils
 BuildRequires:		docbook-style-xsl
@@ -26,8 +25,11 @@ BuildRequires:		gettext-devel
 BuildRequires:		gstreamer1.0-plugins-base
 BuildRequires:		gstreamer1.0-plugins-good
 BuildRequires:		gtk-doc
-BuildRequires:		libtool
+#BuildRequires:	libtool
+BuildRequires:		libtool-base
+BuildRequires:		make
 BuildRequires:		python
+BuildRequires:		slibtool
 BuildRequires:		xsltproc
 %if %{with check}
 BuildRequires:		cunit
@@ -46,7 +48,6 @@ BuildRequires:		pkgconfig(gstreamer-video-1.0)
 BuildRequires:		pkgconfig(gstreamer-audio-1.0)
 BuildRequires:		pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires:		pkgconfig(gtk4)
-BuildRequires:		pkgconfig(gtk+-3.0)
 BuildRequires:		pkgconfig(jack)
 BuildRequires:		pkgconfig(json-glib-1.0)
 BuildRequires:		pkgconfig(libinstpatch-1.0)
@@ -63,7 +64,6 @@ BuildRequires:		pkgconfig(vte-2.91-gtk4)
 BuildRequires:		pkgconfig(webkit2gtk-4.1)
 BuildRequires:		pkgconfig(x11)
 Requires:	xml-common
-
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -168,12 +168,10 @@ export CPPFLAGS='-DAGS_CSS_FILENAME=\"/usr/share/gsequencer/styles/ags.css\" -DA
 						--enable-introspection \
 						--disable-oss \
 						--disable-vst3 \
-						--enable-vte \
 						--enable-gtk-doc \
 						--enable-gtk-doc-html \
 						--with-poppler \
 						--with-tooltips
-
 %make_build
 %make_build html
 %make_build fix-local-html
@@ -195,7 +193,6 @@ chrpath --delete %{buildroot}%{_libdir}/libags_thread.so*
 chrpath --delete %{buildroot}%{_libdir}/libags_gui.so*
 chrpath --delete %{buildroot}%{_libdir}/libags_audio.so*
 chrpath --delete %{buildroot}%{_libdir}/libgsequencer.so*
-
 
 %find_lang %{name}
 
