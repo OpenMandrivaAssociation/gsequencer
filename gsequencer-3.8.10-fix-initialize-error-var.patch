@@ -1,0 +1,12 @@
+diff -rupN gsequencer-8.3.10.old/ags/server/ags_server.c gsequencer-8.3.10/ags/server/ags_server.c
+--- gsequencer-8.3.10.old/ags/server/ags_server.c	2026-03-08 15:47:38.000000000 +0100
++++ gsequencer-8.3.10/ags/server/ags_server.c	2026-03-25 22:28:41.048423168 +0100
+@@ -1244,7 +1244,7 @@ ags_server_real_listen(AgsServer *server
+   gboolean any_address;
+   gboolean ip4_success, ip6_success;
+   
+-  GError *error;
++  GError *error = NULL;
+ 
+   GRecMutex *server_mutex;
+   

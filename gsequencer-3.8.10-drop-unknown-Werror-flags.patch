@@ -1,0 +1,12 @@
+diff -rupN gsequencer-8.3.10.old/Makefile.am gsequencer-8.3.10/Makefile.am
+--- gsequencer-8.3.10.old/Makefile.am	2026-03-08 15:47:38.000000000 +0100
++++ gsequencer-8.3.10/Makefile.am	2026-03-25 22:18:26.223987761 +0100
+@@ -30,7 +30,7 @@ CPPFLAGS += -D_WINSOCK_H
+ else
+ if WITH_OSXAPI
+ else
+-CPPFLAGS += -D_FORTIFY_SOURCE=2 -Wall -Wformat -Werror=format-security -Werror=return-type -Werror=uninitialized -Werror=maybe-uninitialized -Werror=missing-parameter-type -Werror=int-conversion -Werror=implicit-function-declaration
++CPPFLAGS += -D_FORTIFY_SOURCE=2 -Wall -Wformat -Werror=format-security -Werror=return-type -Werror=uninitialized -Werror=int-conversion -Werror=implicit-function-declaration
+ endif
+ endif
+ 
