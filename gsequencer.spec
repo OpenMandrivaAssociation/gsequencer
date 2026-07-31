@@ -8,7 +8,7 @@
 
 Summary:	 Audio processing engine
 Name:	gsequencer
-Version: 8.3.10
+Version: 9.0.20
 Release:	1
 License:	GPLv3+ and AGPLv3+
 Group:	Sound
