@@ -1,14 +1,14 @@
 # Tests are useful only while updating the package
 %bcond_with	check
 
-%define	major	8
+%define	major	9
 %define libname	%mklibname ags
 %define oldlibname	%mklibname ags 8
 %define devname	%mklibname -d ags
 
 Summary:	 Audio processing engine
 Name:	gsequencer
-Version: 9.0.20
+Version: 9.0.24
 Release:	1
 License:	GPLv3+ and AGPLv3+
 Group:	Sound
@@ -36,7 +36,7 @@ BuildRequires:		cunit
 BuildRequires:		x11-server-xvfb
 %endif
 BuildRequires:		ladspa-devel
-BuildRequires:		pkgconfig(alsa)
+BuildRequires:		pkgconfig(alsa) >= 1.0.25
 BuildRequires:		pkgconfig(cairo) >= 1.12.0
 BuildRequires:		pkgconfig(dssi)
 BuildRequires:		pkgconfig(fftw3)
@@ -110,7 +110,7 @@ This package contains the library files needed by %{name}.
 %{_libdir}/libags_gui.so.%{major}*
 %{_libdir}/libags_audio.so.%{major}*
 %{_libdir}/libgsequencer.so.0*
-%{_libdir}/girepository-1.0/*.typelib
+%{_libdir}/girepository-1.0/Ags*.typelib
 
 #-----------------------------------------------------------------------------
 
@@ -185,6 +185,7 @@ export CPPFLAGS='-DAGS_CSS_FILENAME=\"/usr/share/gsequencer/styles/ags.css\" -DA
 %make_install install-html-mkdir-links
 %make_install install-html
 
+%if 0
 chrpath --delete %{buildroot}%{_bindir}/%{name}
 chrpath --delete %{buildroot}%{_bindir}/midi2xml
 chrpath --delete %{buildroot}%{_libdir}/libags.so*
@@ -193,6 +194,7 @@ chrpath --delete %{buildroot}%{_libdir}/libags_thread.so*
 chrpath --delete %{buildroot}%{_libdir}/libags_gui.so*
 chrpath --delete %{buildroot}%{_libdir}/libags_audio.so*
 chrpath --delete %{buildroot}%{_libdir}/libgsequencer.so*
+%endif
 
 %find_lang %{name}
 
